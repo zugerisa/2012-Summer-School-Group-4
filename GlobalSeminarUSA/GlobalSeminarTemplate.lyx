@@ -78,42 +78,27 @@ enumitem
 \begin_body
 
 \begin_layout Chapter*
-[Enter here the name of your team]
+Group 4
 \end_layout
 
 \begin_layout Description
-\begin_inset Quotes eld
-\end_inset
+Bönhof Matthias (04 July 1983)
+\end_layout
 
-Albert Einstein (1879 – 18 April 1955) was a German-born theoretical physicist
- who developed the theory of general relativity, effecting a revolution
- in physics.
- For this achievement, Einstein is often regarded as the father of modern
- physics.
- [2] He received the 1921 Nobel Prize in Physics "for his services to theoretica
-l physics, and especially for his discovery of the law of the photoelectric
- effect".[3] The latter was pivotal in establishing quantum theory within
- physics.
-\begin_inset Quotes erd
-\end_inset
+\begin_layout Description
+Durrer Simon (29 August 1989)
+\end_layout
 
-, text from 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Einstein"
+\begin_layout Description
+Müller Tim (04 March 1988)
+\end_layout
 
-\end_inset
-
-.
+\begin_layout Description
+Züger Isabel (24 October 1990)
 \end_layout
 
 \begin_layout Description
 Second Team member and her/his responsibilities.
-\end_layout
-
-\begin_layout Description
-...
- Other team members.
 \end_layout
 
 \begin_layout Subsection*
@@ -136,7 +121,7 @@ key "Technical Writing"
 \end_layout
 
 \begin_layout Chapter
-[Title Of Your Task]
+Piano Roll Scanner
 \end_layout
 
 \begin_layout Section
