@@ -82,7 +82,7 @@ Group 4
 \end_layout
 
 \begin_layout Chapter
-Piano Roll Scanner
+Piano Roll Scanner - Design Process Document
 \end_layout
 
 \begin_layout Section
@@ -96,18 +96,42 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-You introduce the problem to the reader so that the 
-\begin_inset Quotes eld
+A “player piano” is a piano equipped with an apparatus to play the piano
+ notes without a human user operating the keyboard.
+\end_layout
+
+\begin_layout Standard
+The pianos are played by piano rolls.
+ These rolls are very rare and they have to be handled very carefully.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename /Users/isabel/Downloads/Fotos_heruntergeladen_mit_AirDroid/IMG_20120710_180254.jpg
+	lyxscale 10
+	scale 10
+
 \end_inset
 
-big-picture
-\begin_inset Quotes erd
-\end_inset
 
- is known to the one that will read this document till the end.
- In this part of the document you prove your skills providing the essence
- of the information that is readable and understandable for non-technical
- personnel too.
+\end_layout
+
+\begin_layout Standard
+For different pianos exist different roll types and they are now about 100
+ years old and some of them are not in a really good state so that they
+ can't be played.
+ But the songs of these rolls should not be lost.
+ So they want to digitalize these songs.
+\end_layout
+
+\begin_layout Standard
+Until now there exists no accurate scanner to scan the valuable old rolls.
+ 
+\end_layout
+
+\begin_layout Standard
+In this document a new concept of a scanner is elaborated.
 \end_layout
 
 \begin_layout Section
@@ -2383,6 +2407,10 @@ sexy
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section
+Concept selection chart
 \end_layout
 
 \begin_layout Bibliography
