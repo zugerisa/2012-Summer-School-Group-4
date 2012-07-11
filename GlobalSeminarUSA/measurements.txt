@@ -1,0 +1,6 @@
+common roll core diameter: 3inch, 3.5inch, 0.75inch
+
+Typically roll length: around 70m
+
+max roll diameter: around 14cm
+
