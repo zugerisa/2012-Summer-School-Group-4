@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<roll type="meinTypVonRolle">
+    <description>
+            
+    </description>
+    <song>
+        <description>
+            <interpret></interpret>
+            <title></title>
+            <year></year>
+        </description>
+        
+        <column topOffset="">
+            <punch offset="32.1" length="1" />
+            <punch offset="34.1" length="2" />
+            <punch offset="37" length="1" />
+            <punch offset="39" length="1" />
+        </column>
+        <column topOffset="">
+            <punch offset="32.1" length="1" />
+            <punch offset="34.1" length="2" />
+            <punch offset="37" length="1" />
+            <punch offset="39" length="1" />
+        </column>
+    <song>
+</roll>
