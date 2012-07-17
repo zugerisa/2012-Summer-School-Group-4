@@ -181,35 +181,7 @@ In this document a new concept of a scanner is elaborated.
 \end_layout
 
 \begin_layout Section
-Problem description
-\end_layout
 
-\begin_layout Section
-State Of The Art
-\end_layout
-
-\begin_layout Section
-Detailed solution description
-\end_layout
-
-\begin_layout Subsection
-Mechanism
-\end_layout
-
-\begin_layout Subsection
-Scanner
-\end_layout
-
-\begin_layout Subsection
-Data Processing
-\end_layout
-
-\begin_layout Subsubsection
-Image Hole Detection Algorithm
-\end_layout
-
-\begin_layout Subsubsection
-Digital Output
 \end_layout
 
 \begin_layout Section
@@ -5077,7 +5049,7 @@ Laser Scanner
 \end_layout
 
 \begin_layout Paragraph
-Mechanism
+Transport system
 \end_layout
 
 \begin_layout Subparagraph*
