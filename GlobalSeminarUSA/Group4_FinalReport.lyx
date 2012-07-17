@@ -139,6 +139,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Images/piano_roll.jpg
+	width 50col%
 
 \end_inset
 
@@ -4019,6 +4020,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Images/selection.bmp
+	width 50col%
 
 \end_inset
 
@@ -4899,7 +4901,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1704.JPG
 	lyxscale 20
-	scale 20
+	width 50col%
 
 \end_inset
 
@@ -4941,6 +4943,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1705.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -4975,6 +4978,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1706.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -5012,6 +5016,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1707.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -6081,6 +6086,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1725.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -6118,6 +6124,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1726.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -6825,6 +6832,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1727.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -6895,6 +6903,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1729.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -6932,6 +6941,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1719.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -7515,6 +7525,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1716.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -7552,6 +7563,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1718.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -8110,6 +8122,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1719.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -8147,6 +8160,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1720.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -8184,6 +8198,7 @@ status open
 \begin_inset Graphics
 	filename Images/DSCN1721.JPG
 	lyxscale 20
+	width 50col%
 
 \end_inset
 
@@ -10045,7 +10060,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename Images/timetable.bmp
-	scale 55
+	width 100col%
 	rotateAngle 90
 
 \end_inset
