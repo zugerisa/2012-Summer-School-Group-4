@@ -1,0 +1,43 @@
+Grading Criteria :
+Technical Content 50%
+Oral Presentation: 25%
+Final Report: 25%
+
+Tech Content:
+a) Quality of design
+	i) Simplicity / robustness
+	ii) Safety
+	iii) Ergonomics
+	iv) Production feasibility
+	v) Projected performance
+	vi) Part geometry
+	vii) Sketches (main parts, assembly, handmade, roughly scaled)
+	viii) Bill of materials (part list)
+	ix) estimate of manufacturing costs
+	x) Key supplier
+	xi) Maintenance / repair issues
+
+b) Design process
+	i) Mission statement
+	ii) Costumer requirements
+	iii) Final Prod. Des. Spec
+	iv) List of competitive concepts (for each function)
+	v) concept selection chart
+
+Oral Presentation:
+A) Contents
+	i) Consistency (20 min + 5 min questions)
+	ii) Clarity of description
+	iii) Completeness of information
+B) Slide layout / design
+c) Time management
+
+Final Report:
+A) Contents
+	i) Exec.summary (~1 page, quantitative as well as qualitative)
+	ii) Description of final design
+	iii) Summary of key modeling / calculations / estimation
+	iv) Conclusions & recommendations
+	v) Appendix: User Manual
+B) Writing quality
+C) Layout, grammar, figures, etc.
