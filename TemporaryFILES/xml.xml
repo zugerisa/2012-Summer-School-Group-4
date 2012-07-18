@@ -15,18 +15,13 @@
             <year>asdf</year>
         </description>
         
-        <column offset="2">
-            <punch offset="32.9" />
-            <punch offset="34" />
-            <punch offset="37" />
-            <punch offset="39" />
-        </column>
-        
-        <column offset="2">
-            <punch offset="32.2" />
-            <punch offset="34" />
-            <punch offset="37.3" />
-            <punch offset="39" />
-        </column>
+        <punch x="32.9" y="3.4"/>
+        <punch x="32.9" y="3.4"/>
+        <punch x="32.9" y="3.4"/>
+        <punch x="32.9" y="3.4"/>
+        <punch x="32.9" y="3.4" />
+        <punch x="32" y="3.4"/>
+        <punch x="32.9" y="3.4"/>
+        <punch x="32.9" y="3.4"/>
     </song>
 </roll>

@@ -2,15 +2,10 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 <xs:complexType name="punchType">
-    <xs:attribute name="offset" type="xs:decimal" />
+    <xs:attribute name="x" type="xs:decimal" />
+    <xs:attribute name="y" type="xs:decimal" />
 </xs:complexType>
 
-<xs:complexType name="columnType">
-    <xs:sequence>
-        <xs:element name="punch" type="punchType" maxOccurs="unbounded" />
-    </xs:sequence>
-    <xs:attribute name="offset" type="xs:decimal" />
-</xs:complexType>
 
 <xs:complexType name="descriptionType">
     <xs:sequence>
@@ -32,7 +27,7 @@
  <xs:complexType name="songType">
     <xs:sequence>
         <xs:element name="description" type="descriptionType" maxOccurs="1"/>
-        <xs:element name="column" type="columnType" maxOccurs="unbounded" />
+        <xs:element name="punch" type="punchType" maxOccurs="unbounded" />
     </xs:sequence>
 </xs:complexType>
 
