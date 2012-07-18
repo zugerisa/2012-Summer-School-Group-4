@@ -238,7 +238,7 @@ After that the centroid can be calculated with the followings equations.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-sum_{x}=\sum_{x=0}^{w}\sum_{y=0}^{h}x*f(x,y)
+sum_{x}=\sum_{x=0}^{w}\sum_{y=0}^{h}x*f(x,y)\label{eq:sumx}
 \end{equation}
 
 \end_inset
@@ -249,7 +249,7 @@ sum_{x}=\sum_{x=0}^{w}\sum_{y=0}^{h}x*f(x,y)
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)
+sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)\label{eq:sumy}
 \end{equation}
 
 \end_inset
@@ -289,6 +289,29 @@ sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumx"
+
+\end_inset
+
+ the result gets the added x coordinates and the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumy"
+
+\end_inset
+
+ gets the added y coordinates.
+\end_layout
+
+\begin_layout Standard
+After that this added results has be to divided by the area and that's the
+ x and y coordiantes of the central point.
 \end_layout
 
 \begin_layout Standard
@@ -526,6 +549,289 @@ For that a template image which looks like exactly like a hole goes over
 
 \begin_layout Subsubsection
 Data output
+\end_layout
+
+\begin_layout Standard
+The output file is a xml file which contians several information for a perforato
+r to punch all the holes.
+\end_layout
+
+\begin_layout Standard
+The xml file has the following schema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<?xml version="1.0"?> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="punchType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:attribute name="offset" type="xs:decimal" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="columnType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         	
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="punch" type="punchType" maxOccurs="unbounded" />   
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:attribute name="offset" type="xs:decimal" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="descriptionType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="interpret" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="title" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="year" type="xs:string"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="propertiesType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="type" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="rollwidth" type="xs:decimal"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="holetype" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="holewidth" type="xs:decimal"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="songType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="description" type="descriptionType" maxOccurs="1"/>
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="column" type="columnType" maxOccurs="unbounded" /> 
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="rollType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="properties" type="propertiesType" />         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="song" type="songType" />     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:element name="roll" type="rollType"/> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:schema>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/IMG_0024.jpg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+xml terms d
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:xml-terms-definition"
+
+\end_inset
+
+efinition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the figure
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:xml-terms-definition"
+
+\end_inset
+
+ the different terms for the offsets and columns are visualized.
+ Every punch has a offest from the left corner of the roll and every column
+ has a offset from the top or start of the roll.
+ So every punch has the exact x and y coordinates.
+\end_layout
+
+\begin_layout Standard
+In the first part of the xml there can be input a little information like
+ the roll width and hole width, so that a perforator can cut the paper to
+ the desired size.
 \end_layout
 
 \begin_layout Section

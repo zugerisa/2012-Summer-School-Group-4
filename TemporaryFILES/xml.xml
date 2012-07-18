@@ -1,26 +1,32 @@
 <?xml version="1.0"?>
-<roll type="meinTypVonRolle">
-    <description>
-            
-    </description>
+<roll>
+    
+    <properties>
+        <type>asdf</type>
+        <rollwidth>1.1</rollwidth>
+        <holetype>rectangle</holetype>
+        <holewidth>1</holewidth>
+    </properties>
+    
     <song>
         <description>
-            <interpret></interpret>
-            <title></title>
-            <year></year>
+            <interpret>asdf</interpret>
+            <title>asdf</title>
+            <year>asdf</year>
         </description>
         
-        <column topOffset="">
-            <punch offset="32.1" length="1" />
-            <punch offset="34.1" length="2" />
-            <punch offset="37" length="1" />
-            <punch offset="39" length="1" />
+        <column offset="2">
+            <punch offset="32.9" />
+            <punch offset="34" />
+            <punch offset="37" />
+            <punch offset="39" />
         </column>
-        <column topOffset="">
-            <punch offset="32.1" length="1" />
-            <punch offset="34.1" length="2" />
-            <punch offset="37" length="1" />
-            <punch offset="39" length="1" />
+        
+        <column offset="2">
+            <punch offset="32.2" />
+            <punch offset="34" />
+            <punch offset="37.3" />
+            <punch offset="39" />
         </column>
-    <song>
+    </song>
 </roll>
