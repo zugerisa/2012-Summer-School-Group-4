@@ -85,19 +85,24 @@ Group 4
 \end_layout
 
 \begin_layout Description
-Bönhof Matthias (04 July 1983)
+Bönhof Matthias (04 July 1983) is responsible for the scanner module.
+ He is an electrical engineer.
 \end_layout
 
 \begin_layout Description
-Durrer Simon (29 August 1989)
+Durrer Simon (29 August 1989) is a mechanical engineer and he designed the
+ mechanical parts of this concept.
 \end_layout
 
 \begin_layout Description
-Müller Tim (04 March 1988)
+Müller Tim (04 March 1988) is a business engineer.
+ He is the project manager who organized the workshops.
+ Additionally he implemented the data processing algorithms.
 \end_layout
 
 \begin_layout Description
-Züger Isabel (24 October 1990)
+Züger Isabel (24 October 1990) is a software engineer.
+ She is responsible for the data processing.
 \end_layout
 
 \begin_layout Subsection*
@@ -105,7 +110,25 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-This is abstract!!!
+Within a two weeks long seminar detailed concepts for a piano roll scanner
+ were developed.
+ This documents illustrates one concept of these concepts.
+ Different approaches werde evaluated and described so that the derivation
+ of the solution is comprehensible.
+ So this solution has three main modules: the scanner itself, the transport
+ mechanism and the data processing.
+ All three modules are also described and worked out.
+ 
+\end_layout
+
+\begin_layout Standard
+A usual CIS scanner is used for the scanner module itself.
+ The transport mechanism is based on a driving roll and the data processing
+ uses the central moment calculation to get the desired data from the scanned
+ image.
+ The output file is a xml with a defined xml scheme.
+ This xml output file can be used for a perforator to produce a new roll
+ from this xml file.
 \end_layout
 
 \begin_layout Chapter
@@ -187,9 +210,16 @@ Problem description
 \begin_layout Standard
 The old coin piano and orchestrion rolls are very rare.
  The main goal is to scan this rolls and convert it into a digital format
- such as MIDI.
+ such as XML to use it later for punching a new roll with this specifics
+ songs.
  The scanner should be as simple as possible and the rolls has to be handled
  very carefully.
+ Also the prize should be reasonable.
+\end_layout
+
+\begin_layout Standard
+There are some scanners on the market yet, but these are not really exact
+ and useful.
  
 \end_layout
 
@@ -224,23 +254,60 @@ Image Hole Detection Algorithm
 \end_layout
 
 \begin_layout Standard
+The scanner module delivers an image of a part of the piano roll.
+ This image has to be translated into the x and y coordinates of the holes
+ on it.
+ Therefor are several algorithms.
+ In this concept the central moment calculation with the connected component
+ algorithm and template matching algorithm is used to solve this problem.
+\end_layout
+
+\begin_layout Paragraph*
+Central moment calculation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-shack-moment"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 First of all the image from the scanner has to be translated into a binary
  file.
  Then 0 stands for black and 1 for white.
 \end_layout
 
 \begin_layout Standard
-After that the hole detection can be done by the central moment calcualtion.
+After that the central of one hole can be obtained by the central moment
+ calcualtion.
 \end_layout
 
 \begin_layout Standard
-Therefor the zeroth order moment is needed.
+Therefor the zeroth order moment is needed (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:zeroth-order-moment"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-area=\sum_{x=0}^{w}\sum_{y=0}^{h}f(x,y)
+area=\sum_{x=0}^{w}\sum_{y=0}^{h}f(x,y)\label{eq:zeroth-order-moment}
 \end{equation}
 
 \end_inset
@@ -253,7 +320,35 @@ This gets the area of the hole.
 \end_layout
 
 \begin_layout Standard
-After that the centroid can be calculated with the followings equations.
+After that the centroid can be calculated with the equations 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumx"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumy"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:x-coordinate"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:y-coordinate"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -281,7 +376,7 @@ sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)\label{eq:sumy}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\mu_{1,0}=\frac{sum_{x}}{area}
+\mu_{1,0}=\frac{sum_{x}}{area}\label{eq:x-coordinate}
 \end{equation}
 
 \end_inset
@@ -304,7 +399,7 @@ sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)\label{eq:sumy}
 \color none
 \begin_inset Formula 
 \begin{equation}
-\mu_{0,1}=\frac{sum_{y}}{area}
+\mu_{0,1}=\frac{sum_{y}}{area}\label{eq:y-coordinate}
 \end{equation}
 
 \end_inset
@@ -331,14 +426,38 @@ reference "eq:sumy"
 \end_layout
 
 \begin_layout Standard
-After that this added results has be to divided by the area and that's the
- x and y coordiantes of the central point.
+After that this, the added results has be to divided by the area and that's
+ the x and y coordiantes of the central point.
 \end_layout
 
 \begin_layout Standard
 So, the central point is known from one hole.
- But the image of the scanner has o lot of holes and therefore they has
- to be seperated first to apply the central moment algorithm.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Connected component algorithm
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-shack-labeling"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But the image of the scanner has a lot of holes and therefor they has to
+ be seperated first to apply the central moment algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -550,6 +669,10 @@ end function
 
 \end_layout
 
+\begin_layout Paragraph*
+Template matching algorithm
+\end_layout
+
 \begin_layout Standard
 Another case is if some holes are punched nearly togheter to get a longer
  tone.
@@ -557,28 +680,48 @@ Another case is if some holes are punched nearly togheter to get a longer
  holes as one object.
  To get the desired data the first and the last hole of these group has
  to be found.
- To solve this problem it can be used some correlations, which detects the
- best matches for the holes.
+ To solve this problem the template matching algorithm can be used, which
+ detects the best matches for the holes.
 \end_layout
 
 \begin_layout Standard
-For that a template image which looks like exactly like a hole goes over
+For that a template image which looks like exactly like a hole, goes over
  the narrow holes.
  Then the matching correlation shall be read out and in the end the holes
  are at the best matching points.
 \end_layout
 
+\begin_layout Standard
+Finally the single holes can be extracted and the central moment calculation
+ can be applied.
+ This x and y coordinates will be used for the digital output file which
+ is described in the section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Digital-Output"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Digital-Output"
+
+\end_inset
+
 Digital Output
 \end_layout
 
 \begin_layout Standard
-The output file is a xml file which contians several information for a perforato
+The output file is a XML file which contians several information for a perforato
 r to punch all the holes.
 \end_layout
 
 \begin_layout Standard
-The xml file has the following schema.
+The XML file has the following scheme.
 \end_layout
 
 \begin_layout Standard
@@ -588,7 +731,7 @@ status open
 
 \begin_layout Plain Layout
 
-<?xml version="1.0"?> 
+<?xml version="1.0"?>
 \end_layout
 
 \begin_layout Plain Layout
@@ -598,190 +741,157 @@ status open
 
 \begin_layout Plain Layout
 
-<xs:complexType name="punchType">     
+	<xs:complexType name="punchType">
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:attribute name="offset" type="xs:decimal" /> 
+		<xs:attribute name="x" type="xs:decimal"/> 
 \end_layout
 
 \begin_layout Plain Layout
 
-</xs:complexType>
+		<xs:attribute name="y" type="xs:decimal"/> 
 \end_layout
 
 \begin_layout Plain Layout
 
-<xs:complexType name="columnType">     
+	</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:sequence>         	
+	<xs:complexType name="descriptionType">
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="punch" type="punchType" maxOccurs="unbounded" />   
-  
+		<xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	</xs:sequence>     
+			<xs:element name="interpret" type="xs:string"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:attribute name="offset" type="xs:decimal" /> 
+			<xs:element name="title" type="xs:string"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-</xs:complexType>
+			<xs:element name="year" type="xs:string"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-<xs:complexType name="descriptionType">     
+		</xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:sequence>         
+	</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="interpret" type="xs:string"/>         
+	<xs:complexType name="propertiesType">
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="title" type="xs:string"/>         
+		<xs:sequence> <xs:element name="type" type="xs:string"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="year" type="xs:string"/>     
+			<xs:element name="rollwidth" type="xs:decimal"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-	</xs:sequence> 
+			<xs:element name="holetype" type="xs:string"/> 
 \end_layout
 
 \begin_layout Plain Layout
 
-</xs:complexType>
+			<xs:element name="holewidth" type="xs:decimal"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-<xs:complexType name="propertiesType">     
+		</xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:sequence>         
+	</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="type" type="xs:string"/>         
+	<xs:complexType name="songType">
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="rollwidth" type="xs:decimal"/>         
+		<xs:sequence> <xs:element name="description" type="descriptionType" maxOccurs=
+"1"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="holetype" type="xs:string"/>         
+			<xs:element name="punch" type="punchType" maxOccurs="unbounded"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="holewidth" type="xs:decimal"/>     
+		</xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	</xs:sequence> 
+	</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-</xs:complexType>
+	<xs:complexType name="rollType">
 \end_layout
 
 \begin_layout Plain Layout
 
-<xs:complexType name="songType">     
+		<xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	<xs:sequence>         
+			<xs:element name="properties" type="propertiesType"/>
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="description" type="descriptionType" maxOccurs="1"/>
-         
+			<xs:element name="song" type="songType"/> 
 \end_layout
 
 \begin_layout Plain Layout
 
-		<xs:element name="column" type="columnType" maxOccurs="unbounded" /> 
-    
+		</xs:sequence>
 \end_layout
 
 \begin_layout Plain Layout
 
-	</xs:sequence> 
+	</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-</xs:complexType>
 \end_layout
 
 \begin_layout Plain Layout
 
-<xs:complexType name="rollType">     
-\end_layout
-
-\begin_layout Plain Layout
-
-	<xs:sequence>         
-\end_layout
-
-\begin_layout Plain Layout
-
-		<xs:element name="properties" type="propertiesType" />         
-\end_layout
-
-\begin_layout Plain Layout
-
-		<xs:element name="song" type="songType" />     
-\end_layout
-
-\begin_layout Plain Layout
-
-	</xs:sequence> 
-\end_layout
-
-\begin_layout Plain Layout
-
-</xs:complexType>
-\end_layout
-
-\begin_layout Plain Layout
-
-<xs:element name="roll" type="rollType"/> 
+	<xs:element name="roll" type="rollType"/> 
 \end_layout
 
 \begin_layout Plain Layout
@@ -842,16 +952,17 @@ reference "fig:xml-terms-definition"
 
 \end_inset
 
- the different terms for the offsets and columns are visualized.
- Every punch has a offest from the left corner of the roll and every column
- has a offset from the top or start of the roll.
+ the x and y coordinates are visualized.
+ Every punch has an offest from the left corner of the roll and an offset
+ from the top or start of the roll.
  So every punch has the exact x and y coordinates.
 \end_layout
 
 \begin_layout Standard
-In the first part of the xml there can be input a little information like
- the roll width and hole width, so that a perforator can cut the paper to
- the desired size.
+In the first part of the XML there can be filled in a little information
+ like the roll width and hole width, so that a perforator can cut the paper
+ to the desired size.
+ The XML file is very flexible an can be easly extended.
 \end_layout
 
 \begin_layout Section
