@@ -217,8 +217,635 @@ name "sub:Image-Hole-Detection"
 Image Hole Detection Algorithm
 \end_layout
 
+\begin_layout Standard
+First of all the image from the scanner has to be translated into a binary
+ file.
+ Then 0 stands for black and 1 for white.
+\end_layout
+
+\begin_layout Standard
+After that the hole detection can be done by the central moment calcualtion.
+\end_layout
+
+\begin_layout Standard
+Therefor the zeroth order moment is needed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+area=\sum_{x=0}^{w}\sum_{y=0}^{h}f(x,y)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gets the area of the hole.
+\end_layout
+
+\begin_layout Standard
+After that the centroid can be calculated with the followings equations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+sum_{x}=\sum_{x=0}^{w}\sum_{y=0}^{h}x*f(x,y)\label{eq:sumx}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+sum_{y}=\sum_{x=0}^{w}\sum_{y=0}^{h}y*f(x,y)\label{eq:sumy}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mu_{1,0}=\frac{sum_{x}}{area}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+\mu_{0,1}=\frac{sum_{y}}{area}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumx"
+
+\end_inset
+
+ the result gets the added x coordinates and the equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sumy"
+
+\end_inset
+
+ gets the added y coordinates.
+\end_layout
+
+\begin_layout Standard
+After that this added results has be to divided by the area and that's the
+ x and y coordiantes of the central point.
+\end_layout
+
+\begin_layout Standard
+So, the central point is known from one hole.
+ But the image of the scanner has o lot of holes and therefore they has
+ to be seperated first to apply the central moment algorithm.
+\end_layout
+
+\begin_layout Standard
+The connected component labeling can be used to sepereate the different
+ holes.
+ 
+\end_layout
+
+\begin_layout Standard
+This algorithm labels each connected component.
+ Hence the different components can be identificated and for every single
+ hole the central moment calculation can be applied.
+\end_layout
+
+\begin_layout Standard
+For the connected component labeling conecpt exitsts the two pass algortihm
+ which is really easy to implement.
+\end_layout
+
+\begin_layout Standard
+The algortihm uses the disjoint-set data structure or also named union-find
+ data strucutre.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+function towPass(binary)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	topLabel		//label of the above white pixel
+\end_layout
+
+\begin_layout Plain Layout
+
+	leftLabel		//label of the left white pixel
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//First pass
+\end_layout
+
+\begin_layout Plain Layout
+
+	for each row in binary
+\end_layout
+
+\begin_layout Plain Layout
+
+		for each column in binary
+\end_layout
+
+\begin_layout Plain Layout
+
+			if current pixel has value 1
+\end_layout
+
+\begin_layout Plain Layout
+
+				get top pixel label and store it into topLabel
+\end_layout
+
+\begin_layout Plain Layout
+
+				get left pixel label and store it into leftLabel
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				if above and left pixels have value 0 or don't exists
+\end_layout
+
+\begin_layout Plain Layout
+
+					create new label
+\end_layout
+
+\begin_layout Plain Layout
+
+					set topLabel to this new label
+\end_layout
+
+\begin_layout Plain Layout
+
+					set leftLabel to his new label
+\end_layout
+
+\begin_layout Plain Layout
+
+				end if
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+				get smaller label from above and left
+\end_layout
+
+\begin_layout Plain Layout
+
+				set this smaller label to current pixel label
+\end_layout
+
+\begin_layout Plain Layout
+
+				set the smaller label from above or left to the child of the greater
+ label in the union-find data structure
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if
+\end_layout
+
+\begin_layout Plain Layout
+
+		end for
+\end_layout
+
+\begin_layout Plain Layout
+
+	end for
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Second pass
+\end_layout
+
+\begin_layout Plain Layout
+
+	for each row in binary
+\end_layout
+
+\begin_layout Plain Layout
+
+		for each column in binary
+\end_layout
+
+\begin_layout Plain Layout
+
+			if the label is not the root element in the union-find data structure
+\end_layout
+
+\begin_layout Plain Layout
+
+				get the root element
+\end_layout
+
+\begin_layout Plain Layout
+
+				assign that root label to his label
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if
+\end_layout
+
+\begin_layout Plain Layout
+
+		end for
+\end_layout
+
+\begin_layout Plain Layout
+
+	end for
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another case is if some holes are punched nearly togheter to get a longer
+ tone.
+ Then the connected component labeling conecpt detects these connetcted
+ holes as one object.
+ To get the desired data the first and the last hole of these group has
+ to be found.
+ To solve this problem it can be used some correlations, which detects the
+ best matches for the holes.
+\end_layout
+
+\begin_layout Standard
+For that a template image which looks like exactly like a hole goes over
+ the narrow holes.
+ Then the matching correlation shall be read out and in the end the holes
+ are at the best matching points.
+\end_layout
+
 \begin_layout Subsubsection
 Digital Output
+\end_layout
+
+\begin_layout Standard
+The output file is a xml file which contians several information for a perforato
+r to punch all the holes.
+\end_layout
+
+\begin_layout Standard
+The xml file has the following schema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<?xml version="1.0"?> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="punchType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:attribute name="offset" type="xs:decimal" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="columnType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         	
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="punch" type="punchType" maxOccurs="unbounded" />   
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:attribute name="offset" type="xs:decimal" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="descriptionType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="interpret" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="title" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="year" type="xs:string"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="propertiesType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="type" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="rollwidth" type="xs:decimal"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="holetype" type="xs:string"/>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="holewidth" type="xs:decimal"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="songType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="description" type="descriptionType" maxOccurs="1"/>
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="column" type="columnType" maxOccurs="unbounded" /> 
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:complexType name="rollType">     
+\end_layout
+
+\begin_layout Plain Layout
+
+	<xs:sequence>         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="properties" type="propertiesType" />         
+\end_layout
+
+\begin_layout Plain Layout
+
+		<xs:element name="song" type="songType" />     
+\end_layout
+
+\begin_layout Plain Layout
+
+	</xs:sequence> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:complexType>
+\end_layout
+
+\begin_layout Plain Layout
+
+<xs:element name="roll" type="rollType"/> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</xs:schema>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/IMG_0024.jpg
+	lyxscale 40
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:xml-terms-definition"
+
+\end_inset
+
+xml terms definition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the figure
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:xml-terms-definition"
+
+\end_inset
+
+ the different terms for the offsets and columns are visualized.
+ Every punch has a offest from the left corner of the roll and every column
+ has a offset from the top or start of the roll.
+ So every punch has the exact x and y coordinates.
+\end_layout
+
+\begin_layout Standard
+In the first part of the xml there can be input a little information like
+ the roll width and hole width, so that a perforator can cut the paper to
+ the desired size.
 \end_layout
 
 \begin_layout Section
@@ -315,7 +942,7 @@ reference "sub:Template-Matching-Using"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
