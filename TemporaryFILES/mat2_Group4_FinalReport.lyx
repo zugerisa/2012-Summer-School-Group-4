@@ -120,7 +120,7 @@ The scanner is needed to convert the physical information on the piano roll
  The main part is the Contact Image Sensor 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Contact Image Sensor"
+key "g4-Contact Image Sensor"
 
 \end_inset
 
@@ -137,11 +137,18 @@ key "g4-Scannertypes"
  This is due to the type of optical readout of this 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Contact Image Sensor"
+key "g4-Contact Image Sensor"
 
 \end_inset
 
- which has a very limited depth of sharpness.
+ which has a very limited depth of sharpness 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-CIS Technology"
+
+\end_inset
+
+.
  Additionally the paper has to be very plane at the reading-line of the
  sensor.
  The second part is the positioning device which triggers a new line readout
@@ -222,7 +229,7 @@ Image Read Out
 The 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Contact Image Sensor"
+key "g4-Contact Image Sensor"
 
 \end_inset
 
@@ -317,7 +324,7 @@ The scanner needs a protocol to be able to communicate with the computer
  For this task the open-source protocol TWAIN 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "TWAIN"
+key "g4-TWAIN"
 
 \end_inset
 
@@ -327,7 +334,7 @@ key "TWAIN"
  for the scanning 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "TWAIN Spec"
+key "g4-TWAIN Spec"
 
 \end_inset
 
