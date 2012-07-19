@@ -304,14 +304,14 @@ Scanner
 The scanner is needed to convert the physical information on the piano roll
  into digital pixel data.
  It consists of two components.
- The main part is the Contact Image Sensor 
+ The main part is the contact image sensor 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "g4-Contact Image Sensor"
 
 \end_inset
 
- which reads pixel-wise across the Piano Roll.
+ which reads pixel-wise across the piano roll.
  The scanning sensor SV6400A8CI-01 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -370,8 +370,14 @@ reference "eq:Resolution"
 \end_inset
 
 .
- With the central moment calculation (...) the resolution can be divided by
- the factor of 2 to get to about 1200
+ With the central moment calculation (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "par:Central-moment-calculation"
+
+\end_inset
+
+) the resolution can be divided by the factor of 2 to get to about 1200
 \begin_inset space ~
 \end_inset
 
@@ -540,6 +546,24 @@ name "sub:Data-Processing"
 Data Processing
 \end_layout
 
+\begin_layout Standard
+In the selection chart the central moment calculation was defined as the
+ best algorithm.
+ But in the end it isn't possible to solve this problem with just one algorithm
+ (central moment calculation).
+ So there are several steps to extract all holes from the image and get
+ the x and y coordinates of the centroid.
+ Finally a pattern recoginition algortihm has also be done with the template
+ matching procedure.
+ The image has also to be a grayscale image and then it has to be converted
+ into a binary file.
+ 
+\end_layout
+
+\begin_layout Standard
+So in a way all three possible approaches are needed for one simple step.
+\end_layout
+
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -560,6 +584,12 @@ The scanner module delivers an image of a part of the piano roll.
 \end_layout
 
 \begin_layout Paragraph*
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Central-moment-calculation"
+
+\end_inset
+
 Central moment calculation
 \begin_inset Foot
 status open
@@ -591,14 +621,14 @@ After that the central of one hole can be obtained by the central moment
 \end_layout
 
 \begin_layout Standard
-Therefor the zeroth order moment is needed (
+Therefor the zeroth order moment is needed 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "eq:zeroth-order-moment"
 
 \end_inset
 
-).
+.
 \end_layout
 
 \begin_layout Standard
@@ -785,11 +815,11 @@ end
 \end_layout
 
 \begin_layout Standard
-With those commands it's possible to read the centers of all punchingholes
+With those commands it's possible to read the centers of all punchingholes.
 \end_layout
 
 \begin_layout Paragraph
-Connected component algorithm
+Connected component labeling
 \begin_inset Foot
 status open
 
@@ -1377,8 +1407,92 @@ In the first part of the XML there can be filled in a little information
  The XML file is very flexible an can be easly extended.
 \end_layout
 
+\begin_layout Standard
+The XML file is very flexible and extensible.
+ So it could also be translated into a MIDI or other file format.
+ An other positiv point is, that the XML file is readable and easy to understand.
+ Especially this XML scheme is as simple as possible so that a perforator
+ can handle is easy and fast.
+\end_layout
+
 \begin_layout Section
-Conclusions and Further Work
+Further Work
+\end_layout
+
+\begin_layout Itemize
+First the hole piano roll scanner could be built in a smaller dimension.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Transport system
+\end_layout
+
+\begin_layout Itemize
+Testing of the transport system with the driving rolls should be done to
+ check if it works in the desired motion and does not have any slip.
+ 
+\end_layout
+
+\begin_layout Itemize
+To reduce the allover costs a clutchable motor for wind up and rewind could
+ be designed.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Scanner
+\end_layout
+
+\begin_layout Itemize
+To avoid problems with possible paper slip the positioning device could
+ be made independent of the feeding system by an optical sensor for surface
+ movement the same way a optical mouse sensor works 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-Optical Position Sensing"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Maybe the scanner resolution could be set down to a lower resolution.
+\end_layout
+
+\begin_layout Paragraph*
+Data processing
+\end_layout
+
+\begin_layout Itemize
+With more programming effort the XML file could be converted into a MIDI
+ file.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The concept of the piano roll scanner is similar to other existent concepts.
+ But this solution uses the newest technologies and is really efficient.
+ Especially the quality and precision of the hole detection makes this concept
+ unique.
+ The output file is also really flexible and extensible so that it could
+ be translated into an other file format.
+ The transport system is build to be very precise, safety and ergonomic.
+ The positioning is developed especially for a CIS scanner so that the paper
+ is as flat as possible.
+\end_layout
+
+\begin_layout Standard
+One negative point of this solution is the scanner module is very expensive
+ in contrast to the other parts.
+ This is because there is no cheap scanner which is big enough.
+ An additional point is that this concept can not handle an endless roll
+ because the transport system is not designed for inserting an endless roll.
 \end_layout
 
 \begin_layout Section
@@ -8625,7 +8739,7 @@ Image hole detection algorithm
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -9068,18 +9182,23 @@ Pattern recognition
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset href
-LatexCommand href
-name "Algorithm descritption"
-target "http://www.catenary.com/howto/findmark.html"
+There is a very simple algorithm
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-PatternRecoginition"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-There is a very simple algorithm to find a mark in a image.
+\end_inset
+
+ to find a mark in a image.
  
 \end_layout
 
@@ -10666,6 +10785,22 @@ key "g4-Scannertypes"
  [Online].
  Available: http://www.syscantech.com/en/product/CIS.asp.
  [Accessed: 18-Juli-2012].
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Catenary Systems Inc. 2012 - Pattern recognition"
+key "g4-PatternRecoginition"
+
+\end_inset
+
+[1]„Pattern Recognition, How to Find a Mark in an Image, Visual Basic source
+ code“.
+ [Online].
+ Available: http://www.catenary.com/howto/findmark.html.
+ [Accessed: 19-Juli-2012].
  
 \end_layout
 

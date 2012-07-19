@@ -113,7 +113,7 @@ Piano Roll Scanner
 Conclusions and Further Work
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Mechanical
 \end_layout
 
@@ -121,10 +121,11 @@ Mechanical
 Testing of the transport system with the driving rolls should be done to
  check if it works in the disired motion and does not have any slip.
  To reduce the allover costs a clutchable motor for wind up and rewind could
- be designed in instead of two seperate motors.
+ be designed.
+ 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Scanner
 \end_layout
 
@@ -141,7 +142,7 @@ key "g4-Optical Position Sensing"
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph*
 Data processing
 \end_layout
 
