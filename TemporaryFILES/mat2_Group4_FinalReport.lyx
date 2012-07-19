@@ -349,110 +349,8 @@ The positioning device could be made independent of the feeding system by
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Inkscape"
-key "Inkscape"
-
-\end_inset
-
-Inkscape.
- Draw Freely.
- [WWW Document], 2012.
- URL http://inkscape.org/
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "LyX"
-key "Lyx"
-
-\end_inset
-
-LyX | LyX – The Document Processor [WWW Document], 2012.
- URL http://www.lyx.org/
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Ipe"
-key "Ipe"
-
-\end_inset
-
-The Ipe extensible drawing editor [WWW Document], 2012.
- URL http://ipe7.sourceforge.net/ 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "TechnicalDocs"
-key "Technical Writing"
-
-\end_inset
-
-Tips for Writing Technical Papers [WWW Document], 2012.
- URL http://infolab.stanford.edu/~widom/paper-writing.html 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Seatovic"
-key "Seatovic"
-
-\end_inset
-
- PhD Thesis, Unpublished, D.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-v{S}eatovi
-\backslash
-'{c}
-\end_layout
-
-\end_inset
-
-, 2012
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Zotero"
-key "Zotero"
-
-\end_inset
-
-Zotero | Home [WWW Document], 2012.
- URL http://www.zotero.org/ 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "Einstein"
-key "Einstein"
-
-\end_inset
-
-Albert Einstein - Wikipedia, the free encyclopedia [WWW Document], 2012.
- .
- URL https://en.wikipedia.org/wiki/Albert_Einstein 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 label "CIS"
-key "Contact Image Sensor"
+key "g4-Contact Image Sensor"
 
 \end_inset
 
@@ -460,18 +358,14 @@ Wikipedia contributors.
  „Contact Image Sensor“.
  Wikipedia, the Free Encyclopedia.
  Wikimedia Foundation, Inc., Juli 5, 2012.
- http://en.wikipedia.org/w/index.php?title=Contact_image_sensor&
-\lang ngerman
-oldid
-\lang english
-=473221146
+ http://en.wikipedia.org/w/index.php?title=Contact_image_sensor&oldid=473221146
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "CISTech"
-key "CIS Technology"
+key "g4-CIS Technology"
 
 \end_inset
 
@@ -485,7 +379,7 @@ key "CIS Technology"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "CIS-Scanners"
-key "CIS Scanners"
+key "g4-CIS Scanners"
 
 \end_inset
 
@@ -498,7 +392,7 @@ key "CIS Scanners"
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "TWAIN"
-key "TWAIN"
+key "g4-TWAIN"
 
 \end_inset
 
@@ -513,7 +407,7 @@ Wikipedia contributors.
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 label "TWAIN-Spec"
-key "TWAIN Spec"
+key "g4-TWAIN Spec"
 
 \end_inset
 
