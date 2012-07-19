@@ -1,0 +1,170 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass extbook
+\use_default_options true
+\begin_modules
+customHeadersFooters
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref page
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter*
+Group 4
+\end_layout
+
+\begin_layout Description
+Bönhof Matthias (04 July 1983)
+\end_layout
+
+\begin_layout Description
+Durrer Simon (29 August 1989)
+\end_layout
+
+\begin_layout Description
+Müller Tim (04 March 1988)
+\end_layout
+
+\begin_layout Description
+Züger Isabel (24 October 1990)
+\end_layout
+
+\begin_layout Subsection*
+Abstract
+\end_layout
+
+\begin_layout Standard
+This is abstract!!!
+\end_layout
+
+\begin_layout Chapter
+Piano Roll Scanner
+\end_layout
+
+\begin_layout Section
+User Manual
+\end_layout
+
+\begin_layout Standard
+Usage of the Scanner: After opening the velocity module the roll has to
+ be mounted onto both roll holders.
+ It is also possible to scan an endless role.
+ To do this the roll has to be unrolled inside a basket and the Piano Roll
+ Scanner should be placed on a sideboard where it is easy to place the endless
+ roll between the velocity module.
+ 
+\end_layout
+
+\begin_layout Standard
+In the program on the computer the user can then select the type of the
+ roll and additional options.
+ This is necessary to enable software for analyzing the image data gathered
+ through the scanner.
+ With pressing the start button the Piano Roll Scanner starts its work and
+ reads the roll to the internal pixel format.
+ For a 76
+\begin_inset space ~
+\end_inset
+
+yards (~
+\begin_inset space ~
+\end_inset
+
+70
+\begin_inset space ~
+\end_inset
+
+m) roll the scanning will take about 30
+\begin_inset space ~
+\end_inset
+
+minutes.
+ For shorter rolls the time is proportionally shorter.
+ After the complete scan the software can analyze the pixel data to get
+ the stamp positions and exports them to an XML-file.
+ Additionally it could be possible to help manually in the analyzing process
+ and correct or solve problems.
+ When the analyzation is finished the software outputs a file with the statistic
+s of the processing.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
