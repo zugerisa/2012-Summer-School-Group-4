@@ -156,54 +156,8 @@ A “player piano” is a piano equipped with an apparatus to play the piano
 
 \begin_layout Standard
 The pianos are played by piano rolls.
- These rolls (
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "fig:Piano-Roll"
-
-\end_inset
-
-) are very rare and they have to be handled very carefully.
+ These rolls are very rare and they have to be handled very carefully.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename Images/piano_roll.jpg
-	width 50col%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Piano-Roll"
-
-\end_inset
-
-Piano Roll
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -291,7 +245,14 @@ Transport System
 \end_layout
 
 \begin_layout Standard
-The Piano Roll Scanner is built in a modular construction.
+The Piano Roll Scanner (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Scanner-assembly"
+
+\end_inset
+
+) is built in a modular construction.
  We have split up the scanner in a Piano Roll Holder/ Windup module (which
  are the same), the Arrestor, the Motor, the Transport module and the Scanner
  module.
@@ -304,11 +265,19 @@ n out of steel profiles.
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/scanner fertig-36pt.png
+	lyxscale 20
+	width 80col%
+
+\end_inset
+
 
 \end_layout
 
@@ -316,6 +285,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scanner-assembly"
+
+\end_inset
+
 Scanner assembly
 \end_layout
 
@@ -334,8 +309,7 @@ Scanner assembly
 \end_layout
 
 \begin_layout Standard
-In the image above, you can see the scanner.
- All the driven parts are driven by different motors, which are regulated
+All the driven parts are driven by different motors, which are regulated
  from a computer.
  The translation is done by tooth belts (They are not assembled in the construct
 ion).
@@ -354,20 +328,34 @@ Piano Roll Holder/Windup Module
 The support is done with two parts.
  First we have the main support, which is mounted to the ground support,
  and the upper support is mounted on the main support.
- This allows that you can change the different roll holders.
+ This allows that you can change the different roll holders (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Piano-Roll-holder"
+
+\end_inset
+
+).
  This is important that you can scan different rolls with different core
  diameter.
- The two supports are disconnected in the middle of the bearing.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/roll holder complet.png
+	lyxscale 30
+	width 30col%
+
+\end_inset
+
 
 \end_layout
 
@@ -375,7 +363,70 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Piano-Roll-holder"
+
+\end_inset
+
 Piano Roll holder
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two supports are disconnected in the middle of the bearing (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Piano-Roll-holder-exploded"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/explosion 1 holder.png
+	lyxscale 20
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Piano-Roll-holder-exploded"
+
+\end_inset
+
+Piano Roll holder exploded supports
 \end_layout
 
 \end_inset
@@ -403,17 +454,32 @@ For the roll holder itself, we have two different adapters, which have the
  Roll.
  With a check nut, the position is fixed.
  The Roll adapter is mounted with to threads to the adapter with the bearings
- on it.
+ on it (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Piano-Roll-holder-exploded-22"
+
+\end_inset
+
+).
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/explosion holder-46pt.png
+	lyxscale 20
+	width 80col%
+
+\end_inset
+
 
 \end_layout
 
@@ -421,6 +487,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Piano-Roll-holder-exploded-22"
+
+\end_inset
+
 Piano Roll holder exploded
 \end_layout
 
@@ -443,7 +515,14 @@ Arrestor
 \end_layout
 
 \begin_layout Standard
-The arrestor is a metal sheet, on which the Piano Roll is moving.
+The arrestor (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Arrestor"
+
+\end_inset
+
+) is a metal sheet, on which the Piano Roll is moving.
  The arrestor has the function that the Piano Roll is always in the right
  position.
  The Arrestor is feeding the scanner itself.
@@ -452,11 +531,19 @@ The arrestor is a metal sheet, on which the Piano Roll is moving.
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/arrestor.png
+	lyxscale 20
+	width 60col%
+
+\end_inset
+
 
 \end_layout
 
@@ -464,6 +551,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Arrestor"
+
+\end_inset
+
 Arrestor
 \end_layout
 
@@ -486,7 +579,14 @@ Transport Module
 \end_layout
 
 \begin_layout Standard
-The Transport Module is constructed with two driving rolls.
+The Transport Module (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Arrestor"
+
+\end_inset
+
+) is constructed with two driving rolls.
  The two driving rolls are mounted with bearings in two supports which are
  connected to the ground support.
  The upper roll is driven by gears from the lower roll.
@@ -506,14 +606,32 @@ The upper driving roll is positioned by four parallel pins.
  the scanner with endless rolls.
  
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/transport.png
+	lyxscale 30
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Transport"
+
+\end_inset
+
 Transport
 \end_layout
 
@@ -536,18 +654,33 @@ Scanner Module
 \end_layout
 
 \begin_layout Standard
-The Scanner module is mounted to the ground support.
+The Scanner module (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:Cover-module"
+
+\end_inset
+
+) is mounted to the ground support.
  It has the scanner itself, a small arrestor after the scanner and a coversheet.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/cover.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
 
 \end_layout
 
@@ -555,6 +688,12 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Cover-module"
+
+\end_inset
+
 Cover module
 \end_layout
 
@@ -614,6 +753,7 @@ In the chart below, there you can see the Bill of material inclusive the
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
@@ -1076,6 +1216,49 @@ Bill of Materials
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Conclusion of the mechanic solution
+\end_layout
+
+\begin_layout Standard
+This is taken because it is easy to mount and can used automatically.
+ The idea of the transport system, the driving rolls, is taken because you
+ have always the same speed on the roll and you do not use any velocity
+ sensor.
+ Nevertheless, it would be a good idea to take a sensor to have a good surveilla
+nce of the paper speed.
+\end_layout
+
+\begin_layout Standard
+The idea to wind it up after the scanning process is found to be both, a
+ tighter solution and more safe for the piano roll.
+ Another big goal is that you can scan the roll a second time when you rewind
+ it.
+ So you have at the end two scans and you can take the arithmetic middle
+ and you get a better exactness.
+\end_layout
+
+\begin_layout Standard
+The Piano Roll Holder is exact in this way because the edge of the roll
+ is always at the same position.
+ The arrestor supports the holder to keep the edge always at the same position.
+ With the different adapter it is possible to scan all rolls with different
+ core diameters.
+\end_layout
+
+\begin_layout Standard
+The material is chosen out of their specification.
+ In spite of their specification it would be possible to choose cheaper
+ material.
+\end_layout
+
+\begin_layout Standard
+In spite of all the good characters of this solution it could get an expensive
+ solution and very hard to built it.
+ Because in the manufacturing will be a lot of geometrical tolerances.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1898,6 +2081,7 @@ reference "fig:Finding-the-Punchingholes"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2136,6 +2320,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2204,7 +2389,7 @@ The XML file is very flexible and extensible.
 \end_layout
 
 \begin_layout Section
-Conclusion
+Conclusion and further work
 \end_layout
 
 \begin_layout Standard
@@ -2214,7 +2399,11 @@ The concept of the piano roll scanner is similar to other existent concepts.
  unique.
  The output file is also really flexible and extensible so that it could
  be translated into an other file format.
- The transport system is build to be very precise, safety and ergonomic.
+ The transport system is build to be used automaticalle.
+ A very precise, safety and ergonomic motor is used in it to get a precise
+ and good scan.
+ Despite of the fact, that the piano roll speed is exactly the same as the
+ speed of the motor, it would be great to get an additional surveillance.
  The positioning is developed especially for a CIS scanner so that the paper
  is as flat as possible.
 \end_layout
@@ -2223,16 +2412,21 @@ The concept of the piano roll scanner is similar to other existent concepts.
 One negative point of this solution is the scanner module is very expensive
  in contrast to the other parts.
  This is because there is no cheap scanner which is big enough.
- An additional point is that this concept can not handle an endless roll
- because the transport system is not designed for inserting an endless roll.
+ 
 \end_layout
 
-\begin_layout Section
-Further Work
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+There would be a few aspects which has to be checked and some improvements
+ could be done.
 \end_layout
 
 \begin_layout Itemize
-First the hole piano roll scanner could be built in a smaller dimension.
+First the hole piano roll scanner could be built in a tighter arranged construct
+ion.
  
 \end_layout
 
@@ -5256,6 +5450,7 @@ The Piano Roll Scanner is seperatet by the following parts:
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -5297,6 +5492,7 @@ Scanner module
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -6132,6 +6328,7 @@ Scanner - Selection Chart
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -6294,6 +6491,7 @@ Operating Power
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -6852,6 +7050,7 @@ Positioning
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -7318,6 +7517,7 @@ Positioning - Selection Chart
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -7414,6 +7614,7 @@ Velocity Measurement
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -8080,6 +8281,7 @@ Velocity Measurement - Selection Chart
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -8240,6 +8442,7 @@ Storage
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -8778,6 +8981,7 @@ Storage - Selection Chart
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -8874,6 +9078,7 @@ Transport
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -9391,6 +9596,7 @@ Transport - Selection Chart
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -9525,9 +9731,10 @@ Image hole detection algorithm
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -10012,6 +10219,7 @@ Digital output file format
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -10312,6 +10520,7 @@ Time Schedule
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status collapsed
@@ -11347,6 +11556,7 @@ Isabel Züger
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
