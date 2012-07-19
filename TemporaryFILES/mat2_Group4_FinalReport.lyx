@@ -343,16 +343,6 @@ key "g4-TWAIN Spec"
  can be composed to the complete image.
 \end_layout
 
-\begin_layout Section
-Conclusions and Further Work
-\end_layout
-
-\begin_layout Standard
-The positioning device could be made independent of the feeding system by
- an optical readout.
- It would then be insensitive to possible paper slip.
-\end_layout
-
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
