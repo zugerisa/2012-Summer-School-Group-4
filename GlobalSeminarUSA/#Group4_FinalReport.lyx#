@@ -111,28 +111,94 @@ Abstract
 \end_layout
 
 \begin_layout Standard
-Within a two weeks long seminar detailed concepts for a piano roll scanner
- were developed.
- This documents illustrates one concept of these concepts.
- Different approaches were evaluated and described so that the derivation
+There exists pianos and orchestrions which can be played automatically with
+ some paper rolls.
+ This rolls contains holes which define what the piano has to play.
+ These rolls are very rare and old and it should be possible to copy them
+ in an easy way.
+ For this problem a piano roll scanner and perforator is needed.
+\end_layout
+
+\begin_layout Standard
+The group has to develop such a scanner to scan the old piano rolls.
+ This documents illustrates the solution of this scanning problem.
+ The most important requirements are to handle the old piano rolls with
+ care, scan them automatically, put them in a digital format, recognize
+ perforator errors, rewind the rolls after scanning, able to scan as many
+ different rolls as possible and the scanning process is finished in a accurate
+ time.
+ Different approaches were be evaluated and described so that the derivation
  of the solution is comprehensible.
  So this solution has three main modules: the scanner itself, the transport
- mechanism and the data processing.
- All three modules are also described and worked out.
+ system and the data processing.
  
 \end_layout
 
 \begin_layout Standard
-An usual CIS scanner is used for the scanner module itself.
- The transport system is based on two rolls.
- One roll unwinds the paper and the other roll winds it up again.
- Inbetween is a driving roll.
- With a motor and driving rolls the paper is pulled through the scanner.
- The image from the scanner will be transformed to a XML file.
- The data processing uses many different algorithms to extract the punching
- holes from the image.
+The transport system is based on the idea of two driving rolls.
+ It is assemblied in a modular way.
+ These modules are the piano roll holder, transport module, the arrestor,
+ the scanner module and the windup module.
+ The piano roll holder and the wind up module are one and the same.
+ It is based on two adapters.
+ This adapters are mounted on each side of the piano roll adapters.
+ A piano roll adapter matches the core diameter.
+ The piano roll can be affixt with a special screw.
+ The transport module has two driving rolls which one of them drives clockwise
+ and the other one anti-clockwise.
+ The driving rolls are laminated with an anti-slip rubber.
+ The arrestor is a plane sheet to lead and hold the roll in the right position.
+ The scanner module is the scanner itself which has afterwards a small arrestor
+ and a cover sheet above the scanner.
+ The windup module is exactly the same like the piano roll holder.
+ This allows to scan the piano roll on its dewindig and its upwinding so
+ you get a very good scan.
+ All the driven parts are powered by a High Torque Step Motor from Nanotec.
+ The transmission is done by tooth belts.
+\end_layout
+
+\begin_layout Standard
+For the scanner module an usual CIS scanner is used.
+ This scanner has the needed resolution of 1200dpi and can scan 70m in 33
+ seconds.
+ This is fast enough to achieve the needed requirements.
+\end_layout
+
+\begin_layout Standard
+The image from the scanner will be transformed to a XML file.
+ The data processing uses different algorithms to extract the punching holes
+ from the image.
+ Three algorithms are necessary to extract the puninching hole from the
+ image.
+ The first is the connected component labeling which distinguishs the holes.
+ The labels are set step by step as the procedure iterates through the image
+ and detects so the connected pixel.
+ And this will be repeated until all labels are set correct.
+ To extract the nearly punched holes a template matching algorithm is applied.
+ In this algorithm a template image is put on the image and is slided over
+ the holes.
+ Then for each position the correlation is measured and in the end it is
+ clear, where the holes are because there is better correlation.
+ And finally the central moment calcualtion gets for each hole seperately
+ the x and y coordinates of the centroid.
+ This calculation is actually the same as the gravity calculation.
+ In the end the x and y calculation are put into the XML file.
  This XML output file can be used for a perforator to produce a new roll
  from this XML file.
+\end_layout
+
+\begin_layout Standard
+The concept of the piano roll scanner is similar to other existent concepts.
+ But this solution uses the newest technologies and is really efficient.
+ Especially the quality and precision of the hole detection makes this concept
+ unique.
+ The output file is XML and therefor it is really flexible and extensible
+ so that it could be translated into an other file format such as MIDI.
+ The transport system is build to be used automatically.
+ Altough their are many good points, the cost for such a scanner will be
+ high.
+ In a further way, it should worked out on the CAD very proparly to see
+ all the details.
 \end_layout
 
 \begin_layout Chapter
@@ -163,7 +229,7 @@ The pianos are played by piano rolls.
 \begin_layout Standard
 For different pianos exist different roll types and they are now about 100
  years old and some of them are not in a really good state so that they
- can't be played.
+ can not be played.
  But the songs of these rolls should not be lost.
  So they want to digitalize these songs.
  Until now there exists no accurate scanner to scan the valuable old rolls.
@@ -185,6 +251,11 @@ The old coin piano and orchestrion rolls are very rare.
  songs.
  The scanner should be as simple as possible and the rolls has to be handled
  very carefully.
+ The most important requirements are to handle the old piano rolls with
+ care, scan them automatically, put them in a digital format, recognize
+ perforator errors, rewind the rolls after scanning, able to scan as many
+ different rolls as possible and the scanning process is finished in a accurate
+ time.
  Also the prize should be reasonable.
 \end_layout
 
@@ -195,7 +266,7 @@ There are some scanners on the market yet, but these are not really exact
 \end_layout
 
 \begin_layout Section
-Detailed solution description
+Detailed Solution Description
 \end_layout
 
 \begin_layout Standard
@@ -245,7 +316,7 @@ Transport System
 \end_layout
 
 \begin_layout Standard
-The Piano Roll Scanner (
+The piano roll scanner (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Scanner-assembly"
@@ -253,14 +324,14 @@ reference "fig:Scanner-assembly"
 \end_inset
 
 ) is built in a modular construction.
- We have split up the scanner in a Piano Roll Holder/ Windup module (which
- are the same), the Arrestor, the Motor, the Transport module and the Scanner
- module.
- This allows that it is easy to mount and you can all place on a ground
- support, which is not defined yet, because you can use a sheet or a constructio
-n out of steel profiles.
- It is not design yet, because it depends how the costumer wants to put
- the scanner on a table or like a single machine.
+ The scanner has been splited up in a piano roll holder / windup module
+ (which are the same), the arrestor, the motor, the transport module and
+ the scanner module.
+ This allows, that it is easy to mount and it is possible to place all the
+ modules on one ground support, which is not defined yet, because a sheet
+ or a construction out of steel profiles can be used.
+ It is not designed yet, because it depends if the costumer wants to put
+ the scanner on a table or to have it like a single machine.
 \end_layout
 
 \begin_layout Standard
@@ -311,24 +382,24 @@ Scanner assembly
 \begin_layout Standard
 All the driven parts are driven by different motors, which are regulated
  from a computer.
- The translation is done by tooth belts (They are not assembled in the construct
+ The translation is done by tooth belts (they are not assembled in the construct
 ion).
  The data transfer to the computer will be from a USB port.
- So it is just a converter jused to get it on a USB output.
+ So it is just a converter used to get it on a USB output.
  The whole part of the translation, all the tooth belts and the gears will
  be protected by a cage.
  So the safety of the operator will be assured.
 \end_layout
 
 \begin_layout Subsubsection
-Piano Roll Holder/Windup Module
+Piano Roll Holder / Windup Module
 \end_layout
 
 \begin_layout Standard
 The support is done with two parts.
- First we have the main support, which is mounted to the ground support,
+ Firstly there is the main support, which is mounted to the ground support,
  and the upper support is mounted on the main support.
- This allows that you can change the different roll holders (
+ This allows that it is possible to change the different roll holders (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Piano-Roll-holder"
@@ -336,8 +407,8 @@ reference "fig:Piano-Roll-holder"
 \end_inset
 
 ).
- This is important that you can scan different rolls with different core
- diameter.
+ This is important because there are existing different rolls with different
+ core diameter.
  
 \end_layout
 
@@ -444,17 +515,17 @@ Piano Roll holder exploded supports
 \end_layout
 
 \begin_layout Standard
-For the roll holder itself, we have two different adapters, which have the
- bearings mounted on it.
- The middle part of the roll holder is the roll adapter, which has an arrestor
+For the roll holder itself, two different adapters which have the bearings
+ on it, are mounted on a roll adapter.
+ The middle part of the roll holder is this roll adapter, which has an arrestor
  side with the exact core diameter.
  It is used a different roll adapter for each core diameter.
  After a length of about 70 mm starts a thread.
- On the thread you can mount a special screw nut, which affix the Piano
- Roll.
- With a check nut, the position is fixed.
- The Roll adapter is mounted with to threads to the adapter with the bearings
- on it (
+ On the thread it is a special screw nut mounted, which affix the piano
+ roll.
+ With a check nut, this position is fixed.
+ The roll adapter is mounted with to threads, one on each side, to the adapter
+ with the bearings on it (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Piano-Roll-holder-exploded-22"
@@ -522,10 +593,10 @@ reference "fig:Arrestor"
 
 \end_inset
 
-) is a metal sheet, on which the Piano Roll is moving.
- The arrestor has the function that the Piano Roll is always in the right
+) is a metal sheet, on which the piano roll is moving.
+ The arrestor has the function that the piano roll is always in the right
  position.
- The Arrestor is feeding the scanner itself.
+ The arrestor is feeding the scanner itself.
  
 \end_layout
 
@@ -579,7 +650,7 @@ Transport Module
 \end_layout
 
 \begin_layout Standard
-The Transport Module (
+The transport module (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Arrestor"
@@ -590,12 +661,12 @@ reference "fig:Arrestor"
  The two driving rolls are mounted with bearings in two supports which are
  connected to the ground support.
  The upper roll is driven by gears from the lower roll.
- The lower roll gets his drive by a tooth belt from a motor.
+ The lower roll gets its drive by a tooth belt from a motor.
  The transmission is one.
  Both of the rolls must to be both exactly produced and exactly parallel
  mounted.
  The driving rolls are laminated with an anti-slip rubber.
- In this way, it is given that the Piano Roll is going straight and can
+ In this way, it is given that the piano roll is going straight and can
  not slide away.
  
 \end_layout
@@ -654,7 +725,7 @@ Scanner Module
 \end_layout
 
 \begin_layout Standard
-The Scanner module (
+The scanner module (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:Cover-module"
@@ -725,7 +796,23 @@ Motor
 \begin_layout Standard
 To drive the whole scanner, there are three motors mounted.
  A well dimensioned motor should be the ST8918 High Torque Stepmotor – Nema
- 34.
+ 34
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-NanotecShrittmoter"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
  This motor has a high resolution and is used with low-cost drivers for
  precise speed and positioning.
  The motor is produced by NANOTEC and costs about $ 150.-.
@@ -737,18 +824,17 @@ Material
 
 \begin_layout Standard
 It would be the best to produce all the supports out of aluminum.
- The adapters at the Piano Roll Holder should be out of aluminum as well.
+ The adapters at the piano roll holder should be out of aluminum as well.
  But the driving rolls, roll adapter, the special screw nut and the check
  nut should be out of plastic material.
 \end_layout
 
 \begin_layout Subsubsection
-Bill of Material
+Bill Of Material
 \end_layout
 
 \begin_layout Standard
-In the chart below, there you can see the Bill of material inclusive the
- approximated manufacturing costs.
+The chart below shows the bill of material inclusive the approximated costs.
 \end_layout
 
 \begin_layout Standard
@@ -760,7 +846,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="5">
+<lyxtabular version="3" rows="21" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0">
 <column alignment="center" valignment="top" width="0">
@@ -772,7 +858,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+component
 \end_layout
 
 \end_inset
@@ -781,7 +867,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+# of Units
 \end_layout
 
 \end_inset
@@ -790,7 +876,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Material
 \end_layout
 
 \end_inset
@@ -799,7 +885,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+cost per unit [$]
 \end_layout
 
 \end_inset
@@ -808,7 +894,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Cost for the scanner [$]
 \end_layout
 
 \end_inset
@@ -819,7 +905,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Groundsupprt
 \end_layout
 
 \end_inset
@@ -828,7 +914,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1
 \end_layout
 
 \end_inset
@@ -837,7 +923,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Al
 \end_layout
 
 \end_inset
@@ -846,7 +932,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20
 \end_layout
 
 \end_inset
@@ -855,7 +941,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20
 \end_layout
 
 \end_inset
@@ -866,7 +952,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Pianorrollholder support
 \end_layout
 
 \end_inset
@@ -875,7 +961,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4
 \end_layout
 
 \end_inset
@@ -884,7 +970,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Al
 \end_layout
 
 \end_inset
@@ -893,7 +979,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10
 \end_layout
 
 \end_inset
@@ -902,7 +988,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+40
 \end_layout
 
 \end_inset
@@ -913,7 +999,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+bearing
 \end_layout
 
 \end_inset
@@ -922,7 +1008,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+8
 \end_layout
 
 \end_inset
@@ -931,7 +1017,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -940,7 +1026,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5
 \end_layout
 
 \end_inset
@@ -949,7 +1035,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+40
 \end_layout
 
 \end_inset
@@ -960,7 +1046,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Piano roll holder adapter
 \end_layout
 
 \end_inset
@@ -969,7 +1055,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+4
 \end_layout
 
 \end_inset
@@ -978,7 +1064,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Al
 \end_layout
 
 \end_inset
@@ -987,7 +1073,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5
 \end_layout
 
 \end_inset
@@ -996,7 +1082,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+20
 \end_layout
 
 \end_inset
@@ -1007,7 +1093,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+special screw nut
 \end_layout
 
 \end_inset
@@ -1016,7 +1102,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2
 \end_layout
 
 \end_inset
@@ -1025,7 +1111,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Pe
 \end_layout
 
 \end_inset
@@ -1034,7 +1120,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5
 \end_layout
 
 \end_inset
@@ -1043,7 +1129,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10
 \end_layout
 
 \end_inset
@@ -1054,7 +1140,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+check nut
 \end_layout
 
 \end_inset
@@ -1063,7 +1149,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2
 \end_layout
 
 \end_inset
@@ -1072,7 +1158,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Pe
 \end_layout
 
 \end_inset
@@ -1081,7 +1167,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+5
 \end_layout
 
 \end_inset
@@ -1090,7 +1176,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10
 \end_layout
 
 \end_inset
@@ -1101,7 +1187,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Piano roll middle support
 \end_layout
 
 \end_inset
@@ -1110,7 +1196,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2
 \end_layout
 
 \end_inset
@@ -1119,7 +1205,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Pe
 \end_layout
 
 \end_inset
@@ -1128,7 +1214,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+10
 \end_layout
 
 \end_inset
@@ -1137,7 +1223,571 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
+20
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Motor ST8918
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+150
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+450
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Motordriver
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Motor support
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Low support driving rolls
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+upper support driving rolls
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Driving roll
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+gear
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+beltgear
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Arrestor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+cover sheer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scanner support
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle Arrestor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Al
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
 \end_layout
 
 \end_inset
@@ -1148,7 +1798,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Scanner
 \end_layout
 
 \end_inset
@@ -1157,7 +1807,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1
 \end_layout
 
 \end_inset
@@ -1166,7 +1816,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-
 \end_layout
 
 \end_inset
@@ -1175,7 +1825,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3000
 \end_layout
 
 \end_inset
@@ -1184,7 +1834,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+3000
 \end_layout
 
 \end_inset
@@ -1209,24 +1859,25 @@ Bill of Materials
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+The chart shows, that the estimated material costs are $ 3805.-.
+ So the scanner will be expensive.
+ 
+\end_layout
+
 \begin_layout Subsubsection
-Conclusion of the mechanic solution
+Conclusion Of The Mechanic Solution
 \end_layout
 
 \begin_layout Standard
 This is taken because it is easy to mount and can used automatically.
- The idea of the transport system, the driving rolls, is taken because you
- have always the same speed on the roll and you do not use any velocity
- sensor.
+ The idea of the transport system, the driving rolls, is taken because it
+ is always the same speed on the roll and there is no velocity sensor needed.
  Nevertheless, it would be a good idea to take a sensor to have a good surveilla
 nce of the paper speed.
 \end_layout
@@ -1234,10 +1885,9 @@ nce of the paper speed.
 \begin_layout Standard
 The idea to wind it up after the scanning process is found to be both, a
  tighter solution and more safe for the piano roll.
- Another big goal is that you can scan the roll a second time when you rewind
- it.
- So you have at the end two scans and you can take the arithmetic middle
- and you get a better exactness.
+ Another big goal is that the roll can be scaned a second time during rewinding.
+ So in the end there are two scans available and with the arithmetic middle,
+ a better exactness will be achieved.
 \end_layout
 
 \begin_layout Standard
@@ -2407,8 +3057,9 @@ The concept of the piano roll scanner is similar to other existent concepts.
  and good scan.
  Despite of the fact, that the piano roll speed is exactly the same as the
  speed of the motor, it would be great to get an additional surveillance.
- With a small additional construction effort, you c The positioning is developed
- especially for a CIS scanner so that the paper is as flat as possible.
+ With a small additional construction effort, you can scan endless rolls.
+ The positioning is developed especially for a CIS scanner so that the paper
+ is as flat as possible.
 \end_layout
 
 \begin_layout Standard
@@ -2821,6 +3472,53 @@ end
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+User Manual
+\end_layout
+
+\begin_layout Standard
+After opening the velocity module the roll has to be mounted onto both roll
+ holders.
+ It is also possible to scan an endless roll.
+ To do this the roll has to be unrolled inside a basket and the piano roll
+ scanner should be placed on a sideboard where it is easy to place the endless
+ roll between the velocity module.
+ 
+\end_layout
+
+\begin_layout Standard
+In the program on the computer the user can then select the type of the
+ roll and additional options.
+ This is necessary to enable software for analyzing the image data gathered
+ through the scanner.
+ With pressing the start button the piano roll scanner starts its work and
+ reads the roll to the internal pixel format.
+ For a 76
+\begin_inset space ~
+\end_inset
+
+yards (~
+\begin_inset space ~
+\end_inset
+
+70
+\begin_inset space ~
+\end_inset
+
+m) roll the scanning will take about 30
+\begin_inset space ~
+\end_inset
+
+minutes.
+ For shorter rolls the time is proportionally shorter.
+ After the complete scan the software can analyze the pixel data to get
+ the stamp positions and exports them to an XML file.
+ Additionally it could be possible to help manually in the analyzing process
+ and correct or solve problems.
+ When the analyzation is finished the software outputs a file with the statistic
+s of the processing.
 \end_layout
 
 \begin_layout Subsection
@@ -11798,6 +12496,21 @@ key "g4-PatternRecoginition"
  [Online].
  Available: http://www.catenary.com/howto/findmark.html.
  [Accessed: 19-Juli-2012].
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Nanotec"
+key "g4-NanotecShrittmoter"
+
+\end_inset
+
+[1]„Schrittmotoren - ST8918- Nema 34 - Nanotec“.
+ [Online].
+ Available: http://de.nanotec.com/schrittmotor_st8918.html?highlight=766.
+ [Accessed: 20-Juli-2012].
  
 \end_layout
 
