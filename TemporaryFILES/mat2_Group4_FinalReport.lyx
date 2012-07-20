@@ -110,6 +110,12 @@ Piano Roll Scanner
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Scanner"
+
+\end_inset
+
 Scanner
 \end_layout
 
@@ -117,14 +123,14 @@ Scanner
 The scanner is needed to convert the physical information on the piano roll
  into digital pixel data.
  It consists of two components.
- The main part is the Contact Image Sensor 
+ The main part is the contact image sensor 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "g4-Contact Image Sensor"
 
 \end_inset
 
- which reads pixel-wise across the Piano Roll.
+ which reads pixel-wise across the piano roll.
  The scanning sensor SV6400A8CI-01 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -163,28 +169,34 @@ mm we need a resolution of 1200
 
 dpi which can be calculated with the equations 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Tolerance"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Ninquist Shannon"
 
 \end_inset
 
  and 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Resolution"
 
 \end_inset
 
 .
- With the central moment calculation (...) the resolution can be divided by
- the factor of 2 to get to about 1200
+ With the central moment calculation (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "par:Central-moment-calculation"
+
+\end_inset
+
+) the resolution can be divided by the factor of 2 to get to about 1200
 \begin_inset space ~
 \end_inset
 
@@ -202,7 +214,7 @@ tolerance=5\sigma=0.1\, mm\Rightarrow\sigma=0.02\, mm\label{eq:Tolerance}
 
 \begin_inset Formula 
 \begin{equation}
-Niquist\, Shannon:\frac{\sigma}{2}=0.01\, mm\label{eq:Ninquist Shannon}
+Niquist\, Shannon:\,\frac{\sigma}{2}=0.01\, mm\label{eq:Ninquist Shannon}
 \end{equation}
 
 \end_inset
@@ -213,7 +225,7 @@ Niquist\, Shannon:\frac{\sigma}{2}=0.01\, mm\label{eq:Ninquist Shannon}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-resolution:\frac{25.4\,\frac{mm}{inch}}{0.01\,\frac{mm}{dot}}=2540\, dpi\label{eq:Resolution}
+resolution:\,\frac{25.4\,\frac{mm}{inch}}{0.01\,\frac{mm}{dot}}=2540\, dpi\label{eq:Resolution}
 \end{equation}
 
 \end_inset
@@ -236,14 +248,15 @@ key "g4-Contact Image Sensor"
  starts scanning a line on a pulse at the start-pin.
  It needs clock pulses to continue from one pixel to the next and gives
  back the image information on the output line.
- The speed for the one line scan is for the SV6400A8CI-01 
+ Lite-On Semiconductors
 \begin_inset CommandInset citation
 LatexCommand cite
-key "g4-Scannertypes"
+key "g4-LiteOn-CIS"
 
 \end_inset
 
- approximately for 0.6
+ provide customizable sensors.
+ For having a reasonable fast result the scan speed should be about 0.6
 \begin_inset space ~
 \end_inset
 
@@ -251,10 +264,18 @@ ms per line in black/white mode with 1200
 \begin_inset space ~
 \end_inset
 
-dpi resolution.
+dpi resolution and a scan with of 540mm (~
+\begin_inset space ~
+\end_inset
+
+21
+\begin_inset space ~
+\end_inset
+
+inch).
  With the equation 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Scanningspeed"
 
 \end_inset
@@ -284,7 +305,7 @@ minutes.
 
 kHz according to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "eq:Linefreqency"
 
 \end_inset
@@ -315,7 +336,7 @@ f=\frac{1}{time\, per\, line}=\frac{1}{0.6ms}=1.67kHz\label{eq:Linefreqency}
 \end_layout
 
 \begin_layout Subsubsection
-Information transfer to the Computer
+Information Transfer To The Computer
 \end_layout
 
 \begin_layout Standard
@@ -421,15 +442,18 @@ tools.html.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Scannertypes"
-key "g4-Scannertypes"
+label "LiteOn Semi"
+key "g4-LiteOn-CIS"
 
 \end_inset
 
-„contact image sensor CIS modules list of Syscan“.
+„Lite-On Semiconductor Corp.
+ offers a series of discretes, rectifiers, analog ICs, foundry service,
+ Contact Image Sensors, Ambient Light Sensors, Proximity Sensors, Optical
+ Touch Panel Sensors etc“.
  [Online].
- Available: http://www.syscantech.com/en/product/CIS.asp.
- [Accessed: 18-Juli-2012].
+ Available: http://www.liteon-semi.com/_en/02_cis/02_about.php?ID=7.
+ [Accessed: 20-Juli-2012].
  
 \end_layout
 
