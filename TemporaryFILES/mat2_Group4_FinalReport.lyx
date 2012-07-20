@@ -131,15 +131,15 @@ key "g4-Contact Image Sensor"
 \end_inset
 
  which reads pixel-wise across the piano roll.
- The scanning sensor SV6400A8CI-01 
+ The costume made scanning sensor from Lite-On Semiconductors 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "g4-Scannertypes"
+key "g4-LiteOn-CIS"
 
 \end_inset
 
  is used to achieve this task.
- It has to be very close to the object of interest.
+ For scanning the sensor has to be very close to the object of interest.
  This is due to the type of optical readout of this 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -159,7 +159,7 @@ key "g4-CIS Technology"
  sensor.
  The second part is the positioning device which triggers a new line readout
  at the right position.
- To achieve the costumer reqirement of a positioning tolerance of 0.1
+ To achieve the costumer requirement of a positioning tolerance of 0.1
 \begin_inset space ~
 \end_inset
 
@@ -362,6 +362,38 @@ key "g4-TWAIN Spec"
 .
  In the other direction the pixel data is then transferred to computer and
  can be composed to the complete image.
+\end_layout
+
+\begin_layout Section
+Conclusion and further work
+\end_layout
+
+\begin_layout Paragraph
+Scanner
+\end_layout
+
+\begin_layout Itemize
+To avoid problems with possible paper slip the positioning device could
+ be made independent of the feeding system by an optical sensor for surface
+ movement the same way a optical mouse sensor works 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "g4-Optical Position Sensing"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Maybe the scanner resolution could be set down to a lower resolution.
+\end_layout
+
+\begin_layout Itemize
+If two CIS modules from A3 scanners were used instead of the customized
+ sensor the costs could be reduced.
+ For that the software and the mounting of the sensor have to be adjusted.
 \end_layout
 
 \begin_layout Bibliography
